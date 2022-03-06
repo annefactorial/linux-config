@@ -1,0 +1,13 @@
+require('plugins')
+require('keybindings')
+require('settings')
+require('nvim-tree-config')
+require('lualine-config')
+require('bufferline-config')
+require('treesitter-config')
+require('autopairs-config')
+require('whichkey-config')
+require('telescope-config')
+require('lsp-config')
+
+vim.cmd('colorscheme dracula')
