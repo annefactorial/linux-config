@@ -1,2 +1,15 @@
-spell
-plugin/packer_compiled.lua
+# Ignore everything
+/*
+
+# Except for explicitly tracked things
+!/alacritty/
+!/dunst/
+!/flake8/
+!/nvim/
+!/picom/
+
+!/README.md
+!/LICENSE
+
+/nvim/spell
+/nvim/plugin/packer_compiled.lua

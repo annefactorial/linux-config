@@ -15,8 +15,6 @@ local function tmap(shortcut, command) map('t', shortcut, command) end
 nmap('<c-c>', '<esc>')
 imap('<c-c>', '<esc>')
 vmap('<c-c>', '<esc>')
-cmap('<c-c>', '<esc>')
-tmap('<c-c>', '<esc>')
 
 
 nmap('<leader>nn', ':NvimTreeToggle<CR>')
@@ -96,23 +94,29 @@ nmap('<leader>h', ':nohl<cr>')
 nmap('-', 'J')
 vmap('-', 'J')
 nmap('Q', 'gqap')
-nmap('<C-w>h', '<C-w>h')
-nmap('<C-w>t', '<C-w>j')
-nmap('<C-w>n', '<C-w>k')
-nmap('<C-w>s', '<C-w>l')
 
-nmap('<space>h', '<C-w>h')
-nmap('<space>t', '<C-w>j')
-nmap('<space>n', '<C-w>k')
-nmap('<space>s', '<C-w>l')
-nmap('<space>v', ':vsplit<cr>')
-nmap('<space>S', ':split<cr>')
-nmap('<space>|', '<C-w>|')
-nmap('<space>=', '<C-w>=')
-nmap('<space>x', '<C-w>x')
 
-nmap('<space><space>', ':w<cr>:lua vim.lsp.buf.formatting()<cr>')
-nmap('<space>x<space>', ':w<cr>:lua vim.lsp.buf.formatting()<cr>:source %<cr>')
+-- Make space the wincmd
+nmap('<space>', '<c-w>')
+
+--nmap('<C-w>h', '<C-w>h')
+--nmap('<C-w>t', '<C-w>j')
+--nmap('<C-w>n', '<C-w>k')
+--nmap('<C-w>s', '<C-w>l')
+--
+--nmap('<space>h', '<C-w>h')
+--nmap('<space>t', '<C-w>j')
+--nmap('<space>n', '<C-w>k')
+--nmap('<space>s', '<C-w>l')
+--nmap('<space>v', ':vsplit<cr>')
+--nmap('<space>S', ':split<cr>')
+--nmap('<space>|', '<C-w>|')
+--nmap('<space>=', '<C-w>=')
+--nmap('<space>x', '<C-w>x')
+--
+--nmap('<space><space>', ':w<cr>:lua vim.lsp.buf.formatting()<cr>')
+nmap('<leader><space>', '<cmd>w<cr>')
+nmap('<leader>x<space>', ':w<cr>:lua vim.lsp.buf.formatting()<cr>:source %<cr>')
 
 
 nmap('<C-e>', '3<C-e>')
