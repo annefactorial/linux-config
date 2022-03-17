@@ -28,7 +28,7 @@ require('nvim-tree').setup({
             '*.tmp',
             '.git',
             '*.pyc',
-        }
+        },
     },
 
     diagnostics = {
@@ -39,7 +39,7 @@ require('nvim-tree').setup({
     view = {
         width = 30,
         side = 'left',
-        preserve_window_proportions = false,
+        --preserve_window_proportions = false,
         signcolumn = 'auto',
         mappings = {
             custom_only = false,

@@ -1,3 +1,6 @@
+- consider a top of the screen lualine that pulls arbitrary text out of like a database
+    - or anything else for that matter
+
 - Make a custom plugin that is like paredit for html
     - i want to be able to slurp and barf blocks of html, wrap a selection in a new tag, etc
     - this would make frontend editing with tailwind much nicer

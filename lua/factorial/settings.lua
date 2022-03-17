@@ -4,15 +4,14 @@ vim.opt.whichwrap = 'b,s,<,>,[,],h,l,~'
 vim.opt.pumheight = 10
 vim.opt.encoding = 'utf-8'
 vim.opt.ruler = true
-vim.opt.showmode = false
-vim.opt.showcmd = false
+vim.opt.showmode = true
+vim.opt.showcmd = true
 vim.opt.fileencoding = 'utf-8'
 vim.opt.cmdheight = 1
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.termguicolors = true
 vim.opt.conceallevel = 0
-vim.opt.showtabline = 2
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.updatetime = 300
@@ -44,7 +43,6 @@ vim.opt.autoindent = true
 --vim.opt.smartindent = false
 --vim.opt.cindent = false
 vim.opt.cinkeys = ''
---vim.opt.cinkeys = ''
 
 
 vim.opt.shiftround = true

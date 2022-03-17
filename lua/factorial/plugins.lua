@@ -12,8 +12,6 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {
@@ -54,7 +52,12 @@ return require('packer').startup(function(use)
 
     use 'edgedb/edgedb-vim'
 
-    use '/home/davidfactorial/plugins/testplugin.nvim'
+    use {
+        'dhruvmanila/telescope-bookmarks.nvim',
+        requires = {
+            'tami5/sqlite.lua',
+        }
+    }
 
     --use 'hynek/vim-python-pep8-indent'
 
