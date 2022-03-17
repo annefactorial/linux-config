@@ -25,9 +25,9 @@ return require('packer').startup(function(use)
 
     use 'p00f/nvim-ts-rainbow'
 
-    use 'windwp/nvim-autopairs'
+    --use 'windwp/nvim-autopairs'
 
-    use 'folke/which-key.nvim'
+    --use 'folke/which-key.nvim'
 
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
     use 'nvim-telescope/telescope-fzy-native.nvim'
@@ -54,6 +54,17 @@ return require('packer').startup(function(use)
 
     use 'edgedb/edgedb-vim'
 
+    use '/home/davidfactorial/plugins/testplugin.nvim'
+
+    --use 'hynek/vim-python-pep8-indent'
+
+    --use 'jose-elias-alvarez/null-ls.nvim'
+
+    --use 'yuezk/vim-js'
+    --use 'pangloss/vim-javascript'
+    --use 'maxmellon/vim-jsx-pretty'
+
+    --use 'sheerun/vim-polyglot'
     --[[
 
     use 'glepnir/lspsaga.nvim'
@@ -68,16 +79,11 @@ return require('packer').startup(function(use)
         end
     }
 
-    use 'pangloss/vim-javascript'
-    use 'maxmellon/vim-jsx-pretty'
     use 'posva/vim-vue'
 
     -- Coffeescript
     use 'kchmck/vim-coffee-script'
     use 'hilarryxu/vim-coffeescript'
-
-    -- Python
-    use 'hynek/vim-python-pep8-indent'
 
     -- EdgeDB
     use 'edgedb/edgedb-vim'
