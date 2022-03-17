@@ -9,5 +9,6 @@ require('factorial.treesitter-config')
 require('factorial.telescope-config')
 require('factorial.lsp-config')
 require('factorial.globals')
+require('factorial.autocommands')
 
 vim.cmd('colorscheme dracula')

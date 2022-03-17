@@ -1,3 +1,14 @@
+local section_options = {
+    lualine_a = {
+        {'filename', symbols = { modified = '*'}},
+    },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {'diagnostics', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {}
+}
+
 require('lualine').setup {
     options = {
         icons_enabled = true,
@@ -7,27 +18,8 @@ require('lualine').setup {
         disabled_filetypes = {},
         always_divide_middle = true,
     },
-    sections = {
-        --lualine_a = {'mode'},
-        lualine_a = {
-            {'filename', symbols = { modified = '*'}},
-        },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {'diagnostics'},
-        lualine_y = {'progress'},
-        lualine_z = {}
-    },
-    inactive_sections = {
-        lualine_a = {
-            {'filename', symbols = { modified = '*'}},
-        },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {'diagnostics'},
-        lualine_y = {'progress'},
-        lualine_z = {}
-    },
+    sections = section_options,
+    inactive_sections = section_options,
     --tabline = {},
     --tabline = {
     --    lualine_a = {function() return 'this is a test of the status bar line thing for neovim woo' end},

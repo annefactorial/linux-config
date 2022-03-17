@@ -67,7 +67,7 @@ require('telescope').setup {
             full_path = true,
 
             -- Provide a custom profile name for Firefox
-            firefox_profile_name = nil,
+            firefox_profile_name = 'default-release',
         },
     },
 }
