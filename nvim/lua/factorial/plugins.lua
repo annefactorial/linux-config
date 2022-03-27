@@ -5,6 +5,8 @@ return require('packer').startup(function(use)
 
     use 'dracula/vim'
 
+    use 'sjl/badwolf'
+
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
     use {
@@ -58,6 +60,14 @@ return require('packer').startup(function(use)
             'tami5/sqlite.lua',
         }
     }
+
+    use 'dense-analysis/ale'
+
+    use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
+
+    use 'vimwiki/vimwiki'
+
+    use '~/autismhelper/'
 
     --use 'hynek/vim-python-pep8-indent'
 

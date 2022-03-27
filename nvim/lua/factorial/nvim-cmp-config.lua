@@ -5,38 +5,34 @@ local has_words_before = function()
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local feedkey = function(key, mode)
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 lspkind.init()
 
-require('luasnip').config.set_config({
-    -- Allow resuming snippets
-    history = true,
-
-    -- Update dynamic ssnippets as you type
-    updateevents = "TextChanged,TextChangedI",
-
-    enable_autosnippets = true,
-})
-
----vim.keymap.set({"i", "s"}, '<c-k>', function()
----    if luasnip.expand_or_jumpable() then
----        luasnip.expand_or_jump()
----    end
----end, { silent = true })
-
 cmp.setup({
-    snippet = {
-        expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-        end,
-    },
-
     mapping = {
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            elseif has_words_before() then
+                cmp.complete()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+
         ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
@@ -48,10 +44,17 @@ cmp.setup({
         ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     },
 
+    snippet = {
+        expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+        end,
+    },
+
     sources = {
+        { name = 'recursive_garden_search' },
         { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
-        { name = 'path' },
+        --{ name = 'path' },
         { name = 'luasnip' },
         --{ name = 'buffer', keyword_length = 5 },
         { name = 'emoji' },
@@ -60,6 +63,7 @@ cmp.setup({
     formatting = {
         format = lspkind.cmp_format({
             mode = 'symbol_text', -- show only symbol annotations
+            with_text = true,
             maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             menu = {
                 buffer = '[buf]',
@@ -96,6 +100,8 @@ cmp.setup({
     }
 })
 
+--autocmd FileType TelescopePrompt lua require('cmp').setup.buffer({ enabled = false })
+
 --[[
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
@@ -121,4 +127,16 @@ cmp.setup.filetype('gitcommit', {
 --    }, {
 --        { name = 'cmdline' }
 --    })
+--})
+
+
+--vim.api.nvim_create_autocmd('FileType', {
+--    callback = function()
+--        require('cmp').setup.buffer({
+--            sources = {
+--                { name = 'nvim_lua' },
+--                { name = 'buffer' },
+--            }
+--        })
+--    end,
 --})

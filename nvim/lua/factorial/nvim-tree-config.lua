@@ -15,11 +15,11 @@ require('nvim-tree').setup({
     open_on_tab = true,
     hijack_unnamed_buffer_when_opening = true,
     hijack_cursor = true,
-    update_cwd = true,
+    update_cwd = false,
 
     update_focused_file = {
         enable = true,
-        update_cwd = true,
+        update_cwd = false,
         ignore_list = {},
     },
 
@@ -39,7 +39,7 @@ require('nvim-tree').setup({
     view = {
         width = 30,
         side = 'left',
-        --preserve_window_proportions = false,
+        preserve_window_proportions = false,
         signcolumn = 'auto',
         mappings = {
             custom_only = false,

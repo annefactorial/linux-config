@@ -17,6 +17,17 @@ imap('<c-c>', '<esc>')
 vmap('<c-c>', '<esc>')
 
 
+-- be able to edit things in the :command line
+vim.cmd[[
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-f> <right>
+cnoremap <c-b> <left>
+cnoremap <m-f> <c-right>
+cnoremap <m-b> <c-left>
+cnoremap <c-k> <c-o>C
+]]
+
 nmap('<leader>nn', ':NvimTreeToggle<CR>')
 nmap('<leader>nf', ':NvimTreeFindFile<CR>')
 
@@ -41,13 +52,13 @@ inoremap (<cr> (<cr>)<c-o>O<tab>
 inoremap (,<cr> (<cr>),<c-o>O<tab>
 inoremap (;<cr> (<cr>);<c-o>O<tab>
 
-inoremap [<cr> [<cr>]<c-o>O<tab>
-inoremap [,<cr> [<cr>],<c-o>O<tab>
-inoremap [;<cr> [<cr>];<c-o>O<tab>
-
-inoremap [{<cr> [{<cr>}]<c-o>O<tab>
-inoremap [{,<cr> [{<cr>}],<c-o>O<tab>
-inoremap [{;<cr> [{<cr>}];<c-o>O<tab>
+"inoremap [<cr> [<cr>]<c-o>O<tab>
+"inoremap [,<cr> [<cr>],<c-o>O<tab>
+"inoremap [;<cr> [<cr>];<c-o>O<tab>
+"
+"inoremap [{<cr> [{<cr>}]<c-o>O<tab>
+"inoremap [{,<cr> [{<cr>}],<c-o>O<tab>
+"inoremap [{;<cr> [{<cr>}];<c-o>O<tab>
 
 inoremap {/*<cr> {/*<cr>*/}<c-o>O<tab>
 inoremap :<cr> :<cr><tab>
@@ -89,7 +100,7 @@ vmap('K', 'S')
 vmap('S', '$')
 vmap('H', '^')
 
-nmap('<leader>h', ':nohl<cr>')
+nmap('<leader>h', '<cmd>nohl<cr>')
 
 nmap('-', 'J')
 vmap('-', 'J')
@@ -99,24 +110,27 @@ nmap('Q', 'gqap')
 -- Make space the wincmd
 nmap('<space>', '<c-w>')
 
---nmap('<C-w>h', '<C-w>h')
---nmap('<C-w>t', '<C-w>j')
---nmap('<C-w>n', '<C-w>k')
---nmap('<C-w>s', '<C-w>l')
---
---nmap('<space>h', '<C-w>h')
---nmap('<space>t', '<C-w>j')
---nmap('<space>n', '<C-w>k')
---nmap('<space>s', '<C-w>l')
---nmap('<space>v', ':vsplit<cr>')
---nmap('<space>S', ':split<cr>')
---nmap('<space>|', '<C-w>|')
---nmap('<space>=', '<C-w>=')
---nmap('<space>x', '<C-w>x')
---
---nmap('<space><space>', ':w<cr>:lua vim.lsp.buf.formatting()<cr>')
-nmap('<leader><space>', '<cmd>w<cr>')
-nmap('<leader>x<space>', ':w<cr>:lua vim.lsp.buf.formatting()<cr>:source %<cr>')
+nmap('<space>t', '<C-w>j')
+nmap('<space>T', '<C-w>J')
+nmap('<space>n', '<C-w>k')
+nmap('<space>N', '<C-w>K')
+nmap('<space>s', '<C-w>l')
+nmap('<space>S', '<C-w>L')
+
+nmap('<space>j', '<C-w>t')
+nmap('<space>J', '<C-w>T')
+nmap('<space>k', '<C-w>n')
+nmap('<space>K', '<C-w>N')
+nmap('<space>l', '<C-w>s')
+nmap('<space>L', '<C-w>S')
+
+nmap('<space><space>', '<cmd>w<cr>')
+nmap('<leader>cx', ':!chmod +x %<cr>')
+nmap('<leader>xx', '<cmd><cr><cmd>source %<cr>')
+-- TODO need to get the module name from the path returned by %, or find a way to find the path of the current module
+--nmap('<leader>xr', 'R(vim.fn.expand("%"))')
+
+
 
 
 nmap('<C-e>', '3<C-e>')
@@ -128,10 +142,10 @@ imap('!', '!<c-g>u')
 imap('?', '?<c-g>u')
 
 
-nmap('<leader>bc', ':bdelete<cr>')
-nmap('<leader>f', ':Telescope find_files<cr>')
-nmap('<leader>r', ':Telescope live_grep<cr>')
-nmap('<leader>li', ':LspInfo<cr>')
+nmap('<C-p>', '<cmd>Telescope find_files<cr>')
+nmap('<leader>rf', ':Telescope find_files<cr>')
+nmap('<leader>rg', ':Telescope live_grep<cr>')
+nmap('<leader>rh', ':Telescope help_tags<cr>')
 
 nmap('<leader>tn', ':TestNearest<cr>')
 nmap('<leader>tf', ':TestFile<cr>')
@@ -139,10 +153,9 @@ nmap('<leader>ts', ':TestSuite<cr>')
 nmap('<leader>tl', ':TestLast<cr>')
 nmap('<leader>tv', ':TestVisit<cr>')
 
-nmap('<C-p>', '<cmd>Telescope find_files<cr>')
-
 
 vim.cmd[[
 let test#strategy = "neovim"
+"let test#python#pytest#options = '-s'
 ]]
 
