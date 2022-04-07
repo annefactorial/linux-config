@@ -129,8 +129,12 @@ nmap('<space>l', '<C-w>s')
 nmap('<space>L', '<C-w>S')
 
 nmap('<space><space>', '<cmd>w<cr>')
+
+nmap('<leader>cl', ':set bg=light<cr>')
+nmap('<leader>cd', ':set bg=dark<cr>')
 nmap('<leader>cx', ':!chmod +x %<cr>')
 nmap('<leader>xx', '<cmd><cr><cmd>source %<cr>')
+
 -- TODO need to get the module name from the path returned by %, or find a way to find the path of the current module
 --nmap('<leader>xr', 'R(vim.fn.expand("%"))')
 

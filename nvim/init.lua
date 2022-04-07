@@ -19,7 +19,13 @@ require('factorial.completion-config')
 require('factorial.autocommands')
 
 --vim.cmd('colorscheme dracula')
-vim.cmd('colorscheme gruvbox')
+vim.g.gruvbox_contrast_dark = 'hard'
+vim.g.gruvbox_contrast_light = 'hard'
+
+vim.cmd[[
+colorscheme gruvbox
+set bg=dark
+]]
 
 
 --vim.cmd[[
