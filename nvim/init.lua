@@ -4,6 +4,7 @@ filetype indent on
 syntax on
 ]]
 
+require('factorial.vimwiki')
 require('factorial.globals')
 require('factorial.plugins')
 require('factorial.keybindings')
