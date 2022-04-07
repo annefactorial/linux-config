@@ -1,11 +1,9 @@
 return require('packer').startup(function(use)
+    use 'wbthomason/packer.nvim'
     use 'nvim-lua/plenary.nvim'
 
-    use 'wbthomason/packer.nvim'
-
     use 'dracula/vim'
-
-    use 'sjl/badwolf'
+    use 'morhetz/gruvbox'
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
@@ -17,36 +15,38 @@ return require('packer').startup(function(use)
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {
-            'kyazdani42/nvim-web-devicons', -- optional, for file icon
+            'kyazdani42/nvim-web-devicons',
         },
     }
 
-    use 'windwp/nvim-ts-autotag'
-
     use 'p00f/nvim-ts-rainbow'
 
-    --use 'windwp/nvim-autopairs'
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        }
+    }
 
-    --use 'folke/which-key.nvim'
-
-    use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
     use 'nvim-telescope/telescope-fzy-native.nvim'
 
     use 'williamboman/nvim-lsp-installer'
-
     use 'neovim/nvim-lspconfig'
 
+    use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-nvim-lua'
+    --use 'hrsh7th/cmp-buffer'
+    --use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/cmp-emoji'
-    use 'hrsh7th/nvim-cmp'
 
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
-
     use 'onsails/lspkind-nvim'
+    use 'seblj/nvim-echo-diagnostics'
+
+    use 'Vimjas/vim-python-pep8-indent'
 
     --use 'lukas-reineke/lsp-format.nvim'
 
@@ -61,25 +61,13 @@ return require('packer').startup(function(use)
         }
     }
 
-    use 'dense-analysis/ale'
+    --use 'dense-analysis/ale'
 
     use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
 
     use 'vimwiki/vimwiki'
 
-    use '~/autismhelper/'
-
-    --use 'hynek/vim-python-pep8-indent'
-
-    --use 'jose-elias-alvarez/null-ls.nvim'
-
-    --use 'yuezk/vim-js'
-    --use 'pangloss/vim-javascript'
-    --use 'maxmellon/vim-jsx-pretty'
-
-    --use 'sheerun/vim-polyglot'
     --[[
-
     use 'glepnir/lspsaga.nvim'
 
     use 'folke/lsp-colors.nvim'

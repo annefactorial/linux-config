@@ -1,0 +1,36 @@
+#!/bin/sh
+
+export PYTHONPATH=$PYTHONPATH:/home/davidfactorial/.config/
+export PATH=$PATH:/home/davidfactorial/.config/scripts/:/home/davidfactorial/.local/bin:/home/davidfactorial/node_modules/.bin/
+export SXHKD_SHELL=sh
+export PYTHONPYCACHEPREFIX=/tmp
+
+function run {
+    if ! pgrep $1 > /dev/null ;
+    then
+        echo "$1 is stopped, starting..."
+        $@&
+    else
+        echo "$1 is already started"
+    fi
+}
+
+run sxhkd
+run picom
+run dunst
+run panel
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+bspc config border_width 4
+bspc config top_padding 42
+bspc config bottom_padding 0
+bspc config window_gap 0
+bspc config normal_border_color "#000000"
+bspc config focused_border_color "#FF0000"
+
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config focus_follows_pointer true
+bspc config pointer_follows_focus true

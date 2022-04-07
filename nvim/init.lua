@@ -14,13 +14,12 @@ require('factorial.lualine-config')
 require('factorial.treesitter-config')
 require('factorial.telescope-config')
 
-require('factorial.nvim-cmp-config')
-require('factorial.diagnostic-signs')
-require('factorial.language-servers')
+require('factorial.completion-config')
 
 require('factorial.autocommands')
 
-vim.cmd('colorscheme dracula')
+--vim.cmd('colorscheme dracula')
+vim.cmd('colorscheme gruvbox')
 
 
 --vim.cmd[[

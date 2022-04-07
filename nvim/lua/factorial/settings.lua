@@ -38,8 +38,8 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
 
-vim.opt.indentexpr = ''
-vim.opt.autoindent = true
+--vim.opt.indentexpr = ''
+--vim.opt.autoindent = true
 --vim.opt.smartindent = false
 --vim.opt.cindent = false
 vim.opt.cinkeys = ''

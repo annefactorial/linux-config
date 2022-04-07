@@ -4,6 +4,7 @@ require('nvim-treesitter.configs').setup({
         "css",
         "html",
         "javascript",
+        "typescript",
         "json",
         "lua",
         "python",
@@ -18,19 +19,16 @@ require('nvim-treesitter.configs').setup({
         enable = true,
         additional_vim_regex_highlighting = false,
     },
-    autotag = {
-        enable = true,
-    },
     indent = {
-        enable = false,
+        enable = true,
+        disable = {
+            "python"
+        },
     },
 
     rainbow = {
         enable = true,
         extended_mode = true,
         max_file_lines = nil,
-    },
-    autopairs = {
-        enable = true,
     },
 })

@@ -7,6 +7,9 @@
 !/flake8/
 !/nvim/
 !/picom/
+!/bspwm/
+!/sxhkd/
+!/scripts/
 
 !/README.md
 !/LICENSE.md

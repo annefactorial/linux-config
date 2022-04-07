@@ -12,9 +12,13 @@ local function vmap(shortcut, command) map('v', shortcut, command) end
 local function cmap(shortcut, command) map('c', shortcut, command) end
 local function tmap(shortcut, command) map('t', shortcut, command) end
 
-nmap('<c-c>', '<esc>')
+--nmap('<c-c>', '<esc>')
 imap('<c-c>', '<esc>')
 vmap('<c-c>', '<esc>')
+
+vim.cmd[[
+nmap <silent> <leader>ws :%s/\s\+$//e<CR>
+]]
 
 
 -- be able to edit things in the :command line
@@ -36,21 +40,21 @@ no <leader>d C---<esc>o<esc>!!date +"Timestamp: \%Y-\%m-\%d \%H:\%M:\%S"<cr>o
 
 iab pdb import ipdb; ipdb.set_trace()
 
-inoremap {<cr> {<cr>}<c-o>O<tab>
-inoremap {,<cr> {<cr>},<c-o>O<tab>
-inoremap {;<cr> {<cr>};<c-o>O<tab>
+inoremap {<cr> {<cr>}<c-o>O
+inoremap {,<cr> {<cr>},<c-o>O
+inoremap {;<cr> {<cr>};<c-o>O
 
-inoremap ({<cr> ({<cr>})<c-o>O<tab>
-inoremap ({,<cr> ({<cr>}),<c-o>O<tab>
-inoremap ({;<cr> ({<cr>});<c-o>O<tab>
+inoremap ({<cr> ({<cr>})<c-o>O
+inoremap ({,<cr> ({<cr>}),<c-o>O
+inoremap ({;<cr> ({<cr>});<c-o>O
 
-inoremap {)<cr> {<cr>})<c-o>O<tab>
-inoremap {),<cr> {<cr>}),<c-o>O<tab>
-inoremap {);<cr> {<cr>});<c-o>O<tab>
+inoremap {)<cr> {<cr>})<c-o>O
+inoremap {),<cr> {<cr>}),<c-o>O
+inoremap {);<cr> {<cr>});<c-o>O
 
-inoremap (<cr> (<cr>)<c-o>O<tab>
-inoremap (,<cr> (<cr>),<c-o>O<tab>
-inoremap (;<cr> (<cr>);<c-o>O<tab>
+inoremap (<cr> (<cr>)<c-o>O
+inoremap (,<cr> (<cr>),<c-o>O
+inoremap (;<cr> (<cr>);<c-o>O
 
 "inoremap [<cr> [<cr>]<c-o>O<tab>
 "inoremap [,<cr> [<cr>],<c-o>O<tab>
@@ -61,7 +65,7 @@ inoremap (;<cr> (<cr>);<c-o>O<tab>
 "inoremap [{;<cr> [{<cr>}];<c-o>O<tab>
 
 inoremap {/*<cr> {/*<cr>*/}<c-o>O<tab>
-inoremap :<cr> :<cr><tab>
+"inoremap :<cr> :<cr><tab>
 
 ]]
 
@@ -81,7 +85,7 @@ nmap('T', '}')
 nmap('N', '{')
 nmap('L', 'Nzzzv')
 nmap('J', 'T')
-nmap('K', 'S')
+--nmap('K', 'S')
 nmap('S', '$')
 nmap('H', '^')
 
