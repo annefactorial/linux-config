@@ -1,6 +1,6 @@
 local section_options = {
     lualine_a = {
-        {'filename', symbols = { modified = '*'}},
+        {'filename', path = 1, symbols = { modified = '*'}},
     },
     lualine_b = {},
     lualine_c = {},
